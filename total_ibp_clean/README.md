@@ -10,7 +10,7 @@ It is included to to point out the power of this API.
 
 You will need to have an IBP Console Service Credential and API Endpoint. You might also need the token endpoint if not using the 'test.cloud.ibm.com' instance.
 
-```
+```bash
 export IBP_KEY=<apikey>
 export IBP_ENDPOINT=<api_endpoint>
 ```
@@ -39,18 +39,18 @@ const client = ibp.BlockchainV3.newInstance({
 The API call is simply `await client.deleteAllComponents();` 
 
 ```javascript
-	console.log(chalk.blue("Deleting all the components"));
-	
-    let response = await client.deleteAllComponents();
-	
-    if (response.status === 200) {
-		if (response.result){
-			console.log(prettyjson.render(response.result));
-		} else {
-			console.log(prettyjson.render(response));
-		}		
-	} else {
-		console.log(response);
-	}
+console.log(chalk.blue("Deleting all the components"));
+
+let response = await client.deleteAllComponents();
+
+if (response.status === 200) {
+    if (response.result){
+        console.log(prettyjson.render(response.result));
+    } else {
+        console.log(prettyjson.render(response));
+    }		
+} else {
+    console.log(response);
+}
 ```
 

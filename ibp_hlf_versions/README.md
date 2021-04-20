@@ -21,7 +21,7 @@ Options:
 You will need to have an IBP Console Service Credential and API Endpoint. You might also need the token endpoint if not using the 'test.cloud.ibm.com' instance.
 Create a `.env` file like this; this will be read automatically by the code.
 
-```
+```bash
 IBP_KEY=<apikey>
 IBP_ENDPOINT=<api_endpoint>
 API_TOKEN_ENDPOINT=https://iam.test.cloud.ibm.com/identity/token
@@ -52,7 +52,7 @@ Alternatively, they can be specified in a yaml file the name given as a command 
 The step is to authenticate and create a client to connect to the IBP Console.
 Depending on how the IBP Console is installed (is it a public IBM cloud SaaS instance, or has it been installed from the docker images) will determine the authentication method.
 
-```
+```javascript
 // the API key, and endpoint need to used here. Get these from a IBP Service Credential
 // Create an authenticator
 let authenticator;
@@ -71,7 +71,7 @@ if (authtype === 'ibmcloud') {
 
 This authenticator is then used to create the client to the IBP Console
 
-```
+```javascript
 // Create client from the "BlockchainV3" class
 const client = ibp.BlockchainV3.newInstance({
     authenticator,
@@ -83,8 +83,8 @@ const client = ibp.BlockchainV3.newInstance({
 
 To get the versions of components, the API call is simply
 
-```
-    response = await client.getFabVersions();
+```javascript
+response = await client.getFabVersions();
 ```
 
 Most of the code in the file is related to handling the output and formatting. 
